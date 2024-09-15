@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSample.Windows", "AudioSample.Windows\AudioSample.Windows.csproj", "{05DC84BC-3A8F-4AF4-82EA-2F53F5F59AAC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AudioSample.Shared", "AudioSample.Shared\AudioSample.Shared.shproj", "{F0B6C17B-414C-4F68-B444-9DB8D8064B22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05DC84BC-3A8F-4AF4-82EA-2F53F5F59AAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05DC84BC-3A8F-4AF4-82EA-2F53F5F59AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05DC84BC-3A8F-4AF4-82EA-2F53F5F59AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05DC84BC-3A8F-4AF4-82EA-2F53F5F59AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3463BEF-1EFC-4BDF-AFE7-DD961111E3E6}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AudioSample.Shared\AudioSample.Shared.projitems*{05dc84bc-3a8f-4af4-82ea-2f53f5f59aac}*SharedItemsImports = 5
+		AudioSample.Shared\AudioSample.Shared.projitems*{f0b6c17b-414c-4f68-b444-9db8d8064b22}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

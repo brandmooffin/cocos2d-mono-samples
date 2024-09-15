@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>763db043-b124-4778-8e6d-a67c288f2c64</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>AngryNinjas.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Custom\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom\CustomAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom\GameData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom\GameSounds.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\BodyNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Enemy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\Ninja.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\StackObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\StartPlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\TheStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layers\GroundPlane.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layers\TheMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\IntroLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\TheLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Listeners\ContactListener.cs" />
+  </ItemGroup>
+</Project>

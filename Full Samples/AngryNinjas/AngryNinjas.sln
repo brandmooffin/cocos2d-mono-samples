@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.Windows", "AngryNinjas.Windows\AngryNinjas.Windows.csproj", "{82DAE570-DCE9-41D4-B246-C3125E742B3E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AngryNinjas.Shared", "AngryNinjas.Shared\AngryNinjas.Shared.shproj", "{763DB043-B124-4778-8E6D-A67C288F2C64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82DAE570-DCE9-41D4-B246-C3125E742B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82DAE570-DCE9-41D4-B246-C3125E742B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82DAE570-DCE9-41D4-B246-C3125E742B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82DAE570-DCE9-41D4-B246-C3125E742B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56435E9C-5420-4366-AF29-773B3EB52C54}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{763db043-b124-4778-8e6d-a67c288f2c64}*SharedItemsImports = 13
+		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{82dae570-dce9-41d4-b246-c3125e742b3e}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
