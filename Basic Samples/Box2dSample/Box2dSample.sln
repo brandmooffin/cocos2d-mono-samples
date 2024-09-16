@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Box2dSample.Windows", "Box2dSample.Windows\Box2dSample.Windows.csproj", "{E97AB98D-B4A5-42AA-8DDD-2EB6B5D84213}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Box2dSample.Shared", "Box2dSample.Shared\Box2dSample.Shared.shproj", "{08867169-FD96-4116-902D-843733B00DE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E97AB98D-B4A5-42AA-8DDD-2EB6B5D84213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97AB98D-B4A5-42AA-8DDD-2EB6B5D84213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97AB98D-B4A5-42AA-8DDD-2EB6B5D84213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97AB98D-B4A5-42AA-8DDD-2EB6B5D84213}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16F35D42-A521-4D9D-A74B-DDF1C591621F}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Box2dSample.Shared\Box2dSample.Shared.projitems*{08867169-fd96-4116-902d-843733b00de2}*SharedItemsImports = 13
+		Box2dSample.Shared\Box2dSample.Shared.projitems*{e97ab98d-b4a5-42aa-8ddd-2eb6b5d84213}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
