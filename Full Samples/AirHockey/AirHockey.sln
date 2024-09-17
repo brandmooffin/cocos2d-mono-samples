@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirHockey.Windows", "AirHockey.Windows\AirHockey.Windows.csproj", "{6462D4B0-6A14-474F-9EFB-419A5352BECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirHockey.Windows", "AirHockey.Windows\AirHockey.Windows.csproj", "{6462D4B0-6A14-474F-9EFB-419A5352BECA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AirHockey.Shared", "AirHockey.Shared\AirHockey.Shared.shproj", "{B90EF156-7C58-4412-9602-CE72CE5B2ABF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirHockey.Android", "AirHockey.Android\AirHockey.Android.csproj", "{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +19,22 @@ Global
 		{6462D4B0-6A14-474F-9EFB-419A5352BECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6462D4B0-6A14-474F-9EFB-419A5352BECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6462D4B0-6A14-474F-9EFB-419A5352BECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC57E04-B29A-4B5B-95B4-F3DBFB337B58}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75C8FA05-17C2-4F8D-BAD8-71B479C747DB}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AirHockey.Shared\AirHockey.Shared.projitems*{6462d4b0-6a14-474f-9efb-419a5352beca}*SharedItemsImports = 5
+		AirHockey.Shared\AirHockey.Shared.projitems*{9cc57e04-b29a-4b5b-95b4-f3dbfb337b58}*SharedItemsImports = 5
+		AirHockey.Shared\AirHockey.Shared.projitems*{b90ef156-7c58-4412-9602-ce72ce5b2abf}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

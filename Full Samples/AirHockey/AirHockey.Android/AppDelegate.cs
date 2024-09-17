@@ -4,10 +4,10 @@ using Microsoft.Xna.Framework;
 using System;
 using AirHockey.Shared;
 
-namespace AirHockey.Windows
+namespace AirHockey.Android
 {
     /// <summary>
-    /// This is your extension of the main Cocos2D application object.
+	/// This is your extension of the main Cocos2D application object.
     /// </summary>
     internal class AppDelegate : CCApplication
     {
@@ -38,7 +38,7 @@ namespace AirHockey.Windows
                 // Set your design resolution here, which is the target resolution of your primary
                 // design hardware.
                 //
-                CCDrawManager.SetDesignResolutionSize(1280f, 720f, CCResolutionPolicy.ShowAll);
+                CCDrawManager.SetDesignResolutionSize(800, 480, CCResolutionPolicy.ShowAll);
                 CCApplication.SharedApplication.GraphicsDevice.Clear(Color.Black);
                 //initialize director
                 pDirector = CCDirector.SharedDirector;
@@ -48,8 +48,11 @@ namespace AirHockey.Windows
                 pDirector.DisplayStats = false;
 
                 // set FPS. the default value is 1.0/60 if you don't call this
+#if WINDOWS_PHONE
+                pDirector.AnimationInterval = 1f / 30f;
+#else
                 pDirector.AnimationInterval = 1.0 / 60;
-
+#endif
                 CCScene pScene = IntroLayer.Scene;
 
                 pDirector.RunWithScene(pScene);

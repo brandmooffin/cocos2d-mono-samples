@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Cocos2D;
+﻿using Cocos2D;
 using CocosDenshion;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System;
+using System.Collections.Generic;
 
-namespace AirHockey.Windows
+namespace AirHockey.Shared
 {
     public class IntroLayer : CCLayerColor
     {

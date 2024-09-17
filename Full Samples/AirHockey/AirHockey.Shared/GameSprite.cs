@@ -1,11 +1,11 @@
 ﻿using Cocos2D;
 
-namespace AirHockey.Windows
+namespace AirHockey.Shared
 {
     class GameSprite : CCSprite
     {
 
-        public float radius { get { return ContentSize.Width * 0.5f; } }
+        public float radius => ContentSize.Width * 0.5f;
 
         public CCTouch Touch { get; set; }
         public CCPoint NextPosition { get; set; }
