@@ -29,15 +29,25 @@ All samples use the NuGet packages for cocos2d-mono.
 NuGet Packages can be found here:
 
 [Cocos2D-Mono.Android](https://www.nuget.org/packages/Cocos2D-Mono.Android/)
+
 [Cocos2D-Mono.DesktopGL](https://www.nuget.org/packages/Cocos2D-Mono.DesktopGL/)
+
 [Cocos2D-Mono.iOS](https://www.nuget.org/packages/Cocos2D-Mono.iOS/)
+
 [Cocos2D-Mono.Uwp](https://www.nuget.org/packages/Cocos2D-Mono.Uwp/)
+
 [Cocos2D-Mono.Windows](https://www.nuget.org/packages/Cocos2D-Mono.Windows/)
 
+Core NuGet Packages are also available. These packages do not contain the MonoGame Content Pipeline which is typically used to generate .xnb files used at runtime.
+
 [Cocos2D-Mono.Core.Android](https://www.nuget.org/packages/Cocos2D-Mono.Core.Android/)
+
 [Cocos2D-Mono.Core.DesktopGL](https://www.nuget.org/packages/Cocos2D-Mono.Core.DesktopGL/)
+
 [Cocos2D-Mono.Core.iOS](https://www.nuget.org/packages/Cocos2D-Mono.Core.iOS/)
+
 [Cocos2D-Mono.Core.Uwp](https://www.nuget.org/packages/Cocos2D-Mono.Core.Uwp/)
+
 [Cocos2D-Mono.Core.Windows](https://www.nuget.org/packages/Cocos2D-Mono.Core.Windows/)
 
 Project Templates
