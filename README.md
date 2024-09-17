@@ -15,6 +15,17 @@ Coco2D-Mono can be found here: https://github.com/brandmooffin/cocos2d-mono
 
 This library is MIT licensed.
 
+Basic Samples
+--------------
+
+Basic samples are very simple and barebone examples for working with cocos2d-mono. These are great samples for a starting point on a fresh project.
+
+Full Samples
+------------
+
+Full samples are a little more thoughtful and show more project structure. These are great samples for seeing a more complex approach to working with cocos2d-mono. 
+
+
 License
 -------
 
