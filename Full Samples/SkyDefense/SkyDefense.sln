@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.Windows", "SkyDefense.Windows\SkyDefense.Windows.csproj", "{5B870E90-129E-43E7-B265-FB5615D926F7}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SkyDefense.Shared", "SkyDefense.Shared\SkyDefense.Shared.shproj", "{6B2C2A1D-60A6-4601-88DC-B55DB1E3981E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.Android", "SkyDefense.Android\SkyDefense.Android.csproj", "{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B870E90-129E-43E7-B265-FB5615D926F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B870E90-129E-43E7-B265-FB5615D926F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B870E90-129E-43E7-B265-FB5615D926F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B870E90-129E-43E7-B265-FB5615D926F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {390E1ABB-687D-4B15-9D34-2E8E53C70F3E}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{36e7b13f-2e17-4fbe-b6c3-3a8d792b9578}*SharedItemsImports = 5
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{5b870e90-129e-43e7-b265-fb5615d926f7}*SharedItemsImports = 5
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{6b2c2a1d-60a6-4601-88dc-b55db1e3981e}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
