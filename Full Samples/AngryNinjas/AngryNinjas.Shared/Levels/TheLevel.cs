@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using AngryNinjas.Shared.Listeners;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AngryNinjas.Shared.Levels
 {

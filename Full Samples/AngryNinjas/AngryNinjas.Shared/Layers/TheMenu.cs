@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using AngryNinjas.Shared.Levels;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AngryNinjas.Shared.Layers
 {
