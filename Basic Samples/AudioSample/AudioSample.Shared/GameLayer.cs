@@ -87,7 +87,7 @@ namespace AudioSample.Shared
             {
                 var action = new CCScaleTo(0.1f, scale);
                 action.Tag = 900;
-                StopActionByTag(900);
+                StopAction(900);
                 RunAction(action);
             }
         }

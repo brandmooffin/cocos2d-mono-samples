@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngryNinjas.Windows", "Angr
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AngryNinjas.Shared", "AngryNinjas.Shared\AngryNinjas.Shared.shproj", "{763DB043-B124-4778-8E6D-A67C288F2C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.Android", "AngryNinjas.Android\AngryNinjas.Android.csproj", "{821E22C9-518B-42B9-9782-F20F41370792}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngryNinjas.Android", "AngryNinjas.Android\AngryNinjas.Android.csproj", "{821E22C9-518B-42B9-9782-F20F41370792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.iOS", "AngryNinjas.iOS\AngryNinjas.iOS.csproj", "{833775FC-49E3-4496-B84C-D1236F05472D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngryNinjas.iOS", "AngryNinjas.iOS\AngryNinjas.iOS.csproj", "{833775FC-49E3-4496-B84C-D1236F05472D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.DesktopGL", "AngryNinjas.DesktopGL\AngryNinjas.DesktopGL.csproj", "{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{833775FC-49E3-4496-B84C-D1236F05472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{833775FC-49E3-4496-B84C-D1236F05472D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{833775FC-49E3-4496-B84C-D1236F05472D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +51,6 @@ Global
 		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{821e22c9-518b-42b9-9782-f20f41370792}*SharedItemsImports = 5
 		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{82dae570-dce9-41d4-b246-c3125e742b3e}*SharedItemsImports = 5
 		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{833775fc-49e3-4496-b84c-d1236f05472d}*SharedItemsImports = 5
+		AngryNinjas.Shared\AngryNinjas.Shared.projitems*{9ba3bead-5fb3-4205-9784-f1b8cb293650}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

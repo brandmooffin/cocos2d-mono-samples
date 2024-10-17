@@ -256,12 +256,12 @@ namespace AngryNinjas.Shared.Layers
             CCMenu Menu = new CCMenu(button1, button2, button3, button4, button5);
             Menu.Position = menu1Position;
 
-            Menu.AlignItemsHorizontallyWithPadding(10);
+            Menu.AlignItemsHorizontally(10);
             AddChild(Menu, 1);
 
             CCMenu Menu2 = new CCMenu(button6, button7, button8, button9, button10);
             Menu2.Position = menu2Position;
-            Menu2.AlignItemsHorizontallyWithPadding(10);
+            Menu2.AlignItemsHorizontally(10);
             AddChild(Menu2, 1);
 
             IsSoundFXMenuItemActive = !GameData.SharedData.AreSoundFXMuted;
