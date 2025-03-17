@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirHiockey.iOS", "AirHiocke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirHockey.DesktopGL", "AirHockey.DesktopGL\AirHockey.DesktopGL.csproj", "{9676EC9B-2A1A-447A-B570-E46F10190D2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirHockey.macOS", "AirHockey.macOS\AirHockey.macOS.csproj", "{9676EC9B-2A1A-447A-B570-E46F10190D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirHockey.Linux", "AirHockey.Linux\AirHockey.Linux.csproj", "{9676EC9B-2A1A-447A-B570-E46F10190D2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
