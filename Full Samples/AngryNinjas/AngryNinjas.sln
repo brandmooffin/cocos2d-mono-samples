@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngryNinjas.iOS", "AngryNin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.DesktopGL", "AngryNinjas.DesktopGL\AngryNinjas.DesktopGL.csproj", "{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.Linux", "AngryNinjas.Linux\AngryNinjas.Linux.csproj", "{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryNinjas.macOS", "AngryNinjas.macOS\AngryNinjas.macOS.csproj", "{9BA3BEAD-5FB3-4205-9784-F1B8CB293650}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
