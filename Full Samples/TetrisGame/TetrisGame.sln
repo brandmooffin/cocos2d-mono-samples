@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisGame.DesktopGL", "TetrisGame.DesktopGL\TetrisGame.DesktopGL.csproj", "{A428E36D-3D82-4EF2-94B1-FB381BCCB70A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisGame.Linux", "TetrisGame.Linux\TetrisGame.Linux.csproj", "{A428E36D-3D82-4EF2-94B1-FB381BCCB70A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisGame.macOS", "TetrisGame.macOS\TetrisGame.macOS.csproj", "{A428E36D-3D82-4EF2-94B1-FB381BCCB70A}"
+EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TetrisGame.Core", "TetrisGame.Core\TetrisGame.Core.shproj", "{94CB04D2-BAAD-4402-88B4-D3CB783CE93D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisGame.Android", "TetrisGame.Android\TetrisGame.Android.csproj", "{68434821-E431-409B-9A9D-4D24EFC863E6}"
