@@ -85,7 +85,7 @@ namespace TetrisGame.Linux
         }
 
         /// <summary>
-        /// The function be called when the application enter foreground  
+        /// This function is called when the application enters foreground  
         /// </summary>
         public override void ApplicationWillEnterForeground()
         {
