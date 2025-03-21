@@ -73,7 +73,7 @@ namespace TetrisGame.Linux
         }
 
         /// <summary>
-        /// The function be called when the application enter background
+        /// This function is called when the application enters background
         /// </summary>
         public override void ApplicationDidEnterBackground()
         {
