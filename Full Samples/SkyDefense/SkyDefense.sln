@@ -9,6 +9,12 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SkyDefense.Shared", "SkyDef
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.Android", "SkyDefense.Android\SkyDefense.Android.csproj", "{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.DesktopGL", "SkyDefense.DesktopGL\SkyDefense.DesktopGL.csproj", "{03395B48-D3C8-49B3-C563-C13248B45F73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.Linux", "SkyDefense.Linux\SkyDefense.Linux.csproj", "{68863BD8-C457-4E5C-0FAA-C80248D1CB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyDefense.macOS", "SkyDefense.macOS\SkyDefense.macOS.csproj", "{8EE9AD86-AA1F-D98D-995B-150735A415A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +31,18 @@ Global
 		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36E7B13F-2E17-4FBE-B6C3-3A8D792B9578}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{03395B48-D3C8-49B3-C563-C13248B45F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03395B48-D3C8-49B3-C563-C13248B45F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03395B48-D3C8-49B3-C563-C13248B45F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03395B48-D3C8-49B3-C563-C13248B45F73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68863BD8-C457-4E5C-0FAA-C80248D1CB4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68863BD8-C457-4E5C-0FAA-C80248D1CB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68863BD8-C457-4E5C-0FAA-C80248D1CB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68863BD8-C457-4E5C-0FAA-C80248D1CB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EE9AD86-AA1F-D98D-995B-150735A415A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE9AD86-AA1F-D98D-995B-150735A415A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE9AD86-AA1F-D98D-995B-150735A415A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE9AD86-AA1F-D98D-995B-150735A415A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,8 +51,11 @@ Global
 		SolutionGuid = {390E1ABB-687D-4B15-9D34-2E8E53C70F3E}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{03395b48-d3c8-49b3-c563-c13248b45f73}*SharedItemsImports = 5
 		SkyDefense.Shared\SkyDefense.Shared.projitems*{36e7b13f-2e17-4fbe-b6c3-3a8d792b9578}*SharedItemsImports = 5
 		SkyDefense.Shared\SkyDefense.Shared.projitems*{5b870e90-129e-43e7-b265-fb5615d926f7}*SharedItemsImports = 5
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{68863bd8-c457-4e5c-0faa-c80248d1cb4a}*SharedItemsImports = 5
 		SkyDefense.Shared\SkyDefense.Shared.projitems*{6b2c2a1d-60a6-4601-88dc-b55db1e3981e}*SharedItemsImports = 13
+		SkyDefense.Shared\SkyDefense.Shared.projitems*{8ee9ad86-aa1f-d98d-995b-150735a415a6}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
