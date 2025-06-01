@@ -14,9 +14,6 @@ namespace Platformer
             : base(game, graphics)
         {
             s_pSharedApplication = this;
-            //
-            // TODO: Set the display orientation that you want for this game.
-            // 
             CCDrawManager.InitializeDisplay(game, graphics, DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight);
         }
 
@@ -34,23 +31,24 @@ namespace Platformer
             CCDirector pDirector = null;
             try
             {
-                // Set your design resolution here, which is the target resolution of your primary
-                // design hardware.
-                //
-                CCDrawManager.SetDesignResolutionSize(1280f, 720f, CCResolutionPolicy.ShowAll);
+                // Set design resolution
+                CCDrawManager.SetDesignResolutionSize(800, 600, CCResolutionPolicy.ShowAll);
                 CCApplication.SharedApplication.GraphicsDevice.Clear(Color.Black);
-                //initialize director
+                
+                // Initialize director
                 pDirector = CCDirector.SharedDirector;
                 pDirector.SetOpenGlView();
 
-                //turn on display FPS
-                pDirector.DisplayStats = false;
+                // Turn on display FPS (optional, for debugging)
+                pDirector.DisplayStats = true;
 
-                // set FPS. the default value is 1.0/60 if you don't call this
+                // Set FPS
                 pDirector.AnimationInterval = 1.0 / 60;
-                CCScene pScene = IntroLayer.Scene;
-
-                pDirector.RunWithScene(pScene);
+                
+                // Create and run scene
+                CCScene scene = new CCScene();
+                scene.AddChild(new GameLayer());
+                pDirector.RunWithScene(scene);
             }
             catch (Exception ex)
             {
@@ -59,28 +57,16 @@ namespace Platformer
             return true;
         }
 
-        /// <summary>
-        /// The function be called when the application enter background
-        /// </summary>
         public override void ApplicationDidEnterBackground()
         {
-            base.ApplicationDidEnterBackground();
-            //
-            // TODO: Save the game state and pause your music
-            //
             CCDirector.SharedDirector.Pause();
+            CCSimpleAudioEngine.SharedEngine.PauseBackgroundMusic();
         }
 
-        /// <summary>
-        /// The function be called when the application enter foreground  
-        /// </summary>
         public override void ApplicationWillEnterForeground()
         {
-            base.ApplicationWillEnterForeground();
-            //
-            // reset the playback of audio
-            //
-            CCDirector.SharedDirector.ResumeFromBackground();
+            CCDirector.SharedDirector.Resume();
+            CCSimpleAudioEngine.SharedEngine.ResumeBackgroundMusic();
         }
     }
 }
