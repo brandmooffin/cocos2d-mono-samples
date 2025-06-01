@@ -11,6 +11,23 @@ namespace Platformer
         // Box2D works best with objects between 0.1 and 10 meters
         public const float PTM_RATIO = 32.0f;
         
+        // Categories for collision filtering
+        public const ushort CATEGORY_PLAYER = 0x0001;
+        public const ushort CATEGORY_PLATFORM = 0x0002;
+        public const ushort CATEGORY_COLLECTIBLE = 0x0004;
+        
+        // Convert from cocos2d coordinates to Box2D coordinates
+        public static b2Vec2 ToPhysicsVector(CCPoint point)
+        {
+            return new b2Vec2(point.X / PTM_RATIO, point.Y / PTM_RATIO);
+        }
+        
+        // Convert from Box2D coordinates to cocos2d coordinates
+        public static CCPoint ToCocosVector(b2Vec2 vector)
+        {
+            return new CCPoint(vector.x * PTM_RATIO, vector.y * PTM_RATIO);
+        }
+        
         /// <summary>
         /// Convert pixels to meters for Box2D
         /// </summary>

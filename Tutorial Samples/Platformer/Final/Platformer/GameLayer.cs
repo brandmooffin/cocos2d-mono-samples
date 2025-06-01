@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using Cocos2D;
 using Box2D.Dynamics;
 using Box2D.Common;
-using Microsoft.Xna.Framework;
 using Box2D.Dynamics.Contacts;
 using Box2D.Collision;
 using Microsoft.Xna.Framework.Input;
 using CocosDenshion;
-using System.Linq;
 
 namespace Platformer
 {

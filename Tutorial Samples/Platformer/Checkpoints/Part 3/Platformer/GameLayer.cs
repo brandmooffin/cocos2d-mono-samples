@@ -1,143 +1,136 @@
+using System;
+using System.Collections.Generic;
 using Cocos2D;
 using Box2D.Dynamics;
-using System;
+using Box2D.Common;
+using Box2D.Dynamics.Contacts;
+using Box2D.Collision;
+using Microsoft.Xna.Framework.Input;
+using CocosDenshion;
 
 namespace Platformer
 {
     public class GameLayer : CCLayer
     {
-        // Physics world
-        private b2World physicsWorld;
-        private b2Body groundBody;
+        // Box2D world
+        private b2World _world;
+
+        // Game objects
+        private Player _player;
+
+        // Input state
+        private bool _isLeftPressed;
+        private bool _isRightPressed;
+        private bool _isJumpPressed;
         
-        // Physics settings
-        private const int VELOCITY_ITERATIONS = 8;
-        private const int POSITION_ITERATIONS = 3;
-        private const float TIME_STEP = 1.0f / 60.0f;
-        
+        private int _score = 0;
+        private CCLabelTTF _scoreLabel;
+        private CCMenuItemLabel _restartButton;
+
         public GameLayer()
+        {
+            // Initialize physics world with gravity
+            _world = new b2World(new b2Vec2(0, -10.0f));
+
+            // Create level
+            CreateLevel();
+
+            // Load sounds
+            CCSimpleAudioEngine.SharedEngine.PreloadEffect("jump");
+            CCSimpleAudioEngine.SharedEngine.PreloadEffect("land");
+
+            ScheduleUpdate();
+        }
+
+        private void CreateLevel()
         {
             // Get visible area size
             CCSize visibleSize = CCDirector.SharedDirector.WinSize;
-            
-            // Initialize physics world
-            InitializePhysics(visibleSize);
-            
+
             // Create background
             CCSprite background = new CCSprite("background");
             background.Position = new CCPoint(visibleSize.Width / 2, visibleSize.Height / 2);
-            
-            // Scale background to fit screen
-            float scaleX = visibleSize.Width / background.ContentSize.Width;
-            float scaleY = visibleSize.Height / background.ContentSize.Height;
-            background.Scale = Math.Max(scaleX, scaleY);
-            
+            background.Scale = Math.Max(visibleSize.Width / background.ContentSize.Width,
+                                       visibleSize.Height / background.ContentSize.Height);
             AddChild(background, -1);
-            
-            // Create some test physics objects
-            CreateTestObjects(visibleSize);
-            
-            // Add labels for information
-            CCLabelTTF titleLabel = new CCLabelTTF("Platformer Tutorial - Part 2: Physics", "Arial", 24);
-            titleLabel.Position = new CCPoint(visibleSize.Width / 2, visibleSize.Height - 30);
-            titleLabel.Color = CCColor3B.White;
-            AddChild(titleLabel);
-            
-            CCLabelTTF infoLabel = new CCLabelTTF("Physics World Active - Objects will fall!", "Arial", 16);
-            infoLabel.Position = new CCPoint(visibleSize.Width / 2, visibleSize.Height - 60);
-            infoLabel.Color = CCColor3B.Yellow;
-            AddChild(infoLabel);
-            
-            // Enable updates to step the physics world
-            ScheduleUpdate();
+
+            // Create player
+            _player = new Player(_world);
+            _player.Position = new CCPoint(100, 300);
+            AddChild(_player);
+
+            // Create score label
+            _scoreLabel = new CCLabelTTF($"Score: {_score}", "MarkerFelt", 22);
+            _scoreLabel.Position = new CCPoint(100, visibleSize.Height - 30);
+            _scoreLabel.Color = CCColor3B.Black;
+            AddChild(_scoreLabel, 10);
+
+            // Create restart button
+            CCLabelTTF restartLabel = new CCLabelTTF("Restart", "MarkerFelt", 22);
+            restartLabel.Color = CCColor3B.Black;
+            _restartButton = new CCMenuItemLabel(restartLabel, RestartGame);
+            _restartButton.Position = new CCPoint(visibleSize.Width - 100, visibleSize.Height - 30);
+
+            CCMenu menu = new CCMenu(_restartButton);
+            menu.Position = CCPoint.Zero;
+            AddChild(menu, 10);
         }
-        
-        private void InitializePhysics(CCSize worldSize)
+
+        private void RestartGame(object sender)
         {
-            // Create physics world
-            physicsWorld = PhysicsHelper.CreateWorld();
-            
-            // Create world boundaries
-            groundBody = PhysicsHelper.CreateWorldBoundaries(physicsWorld, worldSize);
-            
-            // Set up contact listener for collision detection (we'll expand this later)
-            // physicsWorld.SetContactListener(new ContactListener());
+            // Reset score
+            _score = 0;
+
+            RemoveAllChildren();
+            CreateLevel();
         }
-        
-        private void CreateTestObjects(CCSize visibleSize)
+
+        public void IncreaseScore(int points)
         {
-            // Create some test boxes to demonstrate physics
-            for (int i = 0; i < 3; i++)
-            {
-                // Create a visual sprite
-                CCSprite testBox = new CCSprite("platform"); // Using platform texture as test
-                testBox.Position = new CCPoint(200 + i * 100, 400 + i * 50);
-                testBox.Color = new CCColor3B((byte)(100 + i * 50), (byte)(150 - i * 30), (byte)(200));
-                AddChild(testBox, 1);
-                
-                // Create corresponding physics body
-                b2Body physicsBody = PhysicsHelper.CreateDynamicBody(
-                    physicsWorld, 
-                    testBox.Position, 
-                    testBox.ContentSize,
-                    1.0f
-                );
-                
-                // Store reference to sprite in physics body user data
-                physicsBody.UserData = testBox;
-            }
-            
-            // Create a static platform to catch falling objects
-            CCSprite platform = new CCSprite("platform");
-            platform.Position = new CCPoint(visibleSize.Width / 2, 150);
-            platform.ScaleX = 4.0f; // Make it wider
-            AddChild(platform, 1);
-            
-            // Create static physics body for platform
-            b2Body platformBody = PhysicsHelper.CreateStaticBody(
-                physicsWorld,
-                platform.Position,
-                new CCSize(platform.ContentSize.Width * platform.ScaleX, platform.ContentSize.Height)
-            );
-            platformBody.UserData = platform;
+            _score += points;
+            _scoreLabel.Text = $"Score: {_score}";
         }
-        
+
         public override void Update(float dt)
         {
+            // Update physics world
+            _world.Step(dt, 8, 3);
+
+            // Update player movement based on input
+            if (_isLeftPressed)
+                _player.MoveLeft();
+            else if (_isRightPressed)
+                _player.MoveRight();
+            else
+                _player.StopMoving();
+
+            if (_isJumpPressed)
+                _player.Jump();
+
+            // Update all game objects
+            _player.Update(dt);
+
             base.Update(dt);
-            
-            // Step the physics world
-            physicsWorld.Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
-            
-            // Update visual positions based on physics bodies
-            UpdateVisualPositions();
+
+            // Handle keyboard state every frame            
+            HandleInput();
         }
-        
-        private void UpdateVisualPositions()
+
+        public void HandleInput()
         {
-            // Iterate through all physics bodies and update their corresponding sprites
-            for (b2Body body = physicsWorld.BodyList; body != null; body = body.Next)
-            {
-                if (body.UserData is CCSprite sprite)
-                {
-                    // Convert physics position back to cocos2d coordinates
-                    CCPoint newPosition = PhysicsHelper.VectorToPoint(body.Position);
-                    sprite.Position = newPosition;
-                    
-                    // Update rotation if needed
-                    sprite.Rotation = -CCMathHelper.ToDegrees(body.Angle);
-                }
-            }
-        }
-        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                // Clean up physics world
-                physicsWorld.Dump();
-            }
-            base.Dispose(disposing);
+            // Reset input state
+            _isLeftPressed = false;
+            _isRightPressed = false;
+            _isJumpPressed = false;
+
+            // Handle keyboard input
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.Left))
+                _isLeftPressed = true;
+            if (state.IsKeyDown(Keys.Right))
+                _isRightPressed = true;
+            if (state.IsKeyDown(Keys.Space))
+                _isJumpPressed = true;
         }
     }
 }
