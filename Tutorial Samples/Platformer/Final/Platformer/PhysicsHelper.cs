@@ -26,7 +26,7 @@ namespace Platformer
         {
             return new CCPoint(vector.x * PTM_RATIO, vector.y * PTM_RATIO);
         }
-
+        
         // Create a rectangular physics body
         public static b2Body CreateBoxBody(b2World world, float x, float y, float width, float height,
             bool isDynamic = false, float density = 1.0f, float friction = 0.3f, float restitution = 0.1f)
@@ -42,7 +42,7 @@ namespace Platformer
             // Define fixture
             b2PolygonShape shape = new b2PolygonShape();
             shape.SetAsBox(width / (2 * PTM_RATIO), height / (2 * PTM_RATIO));
-
+            
             b2FixtureDef fixtureDef = new b2FixtureDef();
             fixtureDef.shape = shape;
             fixtureDef.density = density;

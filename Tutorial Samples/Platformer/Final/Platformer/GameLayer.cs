@@ -24,22 +24,22 @@ namespace Platformer
         private bool _isRightPressed;
         private bool _isJumpPressed;
 
-        private ContactListener _contactListener;
-
         private int _score = 0;
         private CCLabelTTF _scoreLabel;
         private CCMenuItemLabel _restartButton;
+        
+        private ContactListener _contactListener;
 
         public GameLayer()
         {
             // Initialize physics world with gravity
             _world = new b2World(new b2Vec2(0, -10.0f));
+            
+            _contactListener = new ContactListener();
+            _world.SetContactListener(_contactListener);
 
             // Create level
             CreateLevel();
-
-            _contactListener = new ContactListener();
-            _world.SetContactListener(_contactListener);
 
             // Load sounds
             CCSimpleAudioEngine.SharedEngine.PreloadEffect("jump");
@@ -63,20 +63,6 @@ namespace Platformer
                                        visibleSize.Height / background.ContentSize.Height);
             AddChild(background, -1);
 
-            // Create floor platform
-            Platform floor = new Platform(_world, visibleSize.Width / 2, 32, visibleSize.Width, 64);
-            _platforms.Add(floor);
-            AddChild(floor);
-
-            // Create some platforms
-            Platform platform1 = new Platform(_world, 200, 100, 200, 32);
-            _platforms.Add(platform1);
-            AddChild(platform1);
-
-            Platform platform2 = new Platform(_world, 600, 100, 200, 32);
-            _platforms.Add(platform2);
-            AddChild(platform2);
-
             // Create player
             _player = new Player(_world);
             _player.Position = new CCPoint(100, 300);
@@ -97,6 +83,20 @@ namespace Platformer
             CCMenu menu = new CCMenu(_restartButton);
             menu.Position = CCPoint.Zero;
             AddChild(menu, 10);
+            
+            // Create floor platform
+            Platform floor = new Platform(_world, visibleSize.Width / 2, 32, visibleSize.Width, 64);
+            _platforms.Add(floor);
+            AddChild(floor);
+
+            // Create some platforms
+            Platform platform1 = new Platform(_world, 200, 100, 200, 32);
+            _platforms.Add(platform1);
+            AddChild(platform1);
+
+            Platform platform2 = new Platform(_world, 600, 100, 200, 32);
+            _platforms.Add(platform2);
+            AddChild(platform2);
 
             // Create collectibles
             for (int i = 0; i < 3; i++)
@@ -161,69 +161,6 @@ namespace Platformer
                 _isRightPressed = true;
             if (state.IsKeyDown(Keys.Space))
                 _isJumpPressed = true;
-        }
-    }
-
-    class ContactListener : b2ContactListener
-    {
-        public override void BeginContact(b2Contact contact)
-        {
-            // Check for foot sensor contacts to enable jumping
-            object userDataA = contact.GetFixtureA().UserData;
-            object userDataB = contact.GetFixtureB().UserData;
-
-            Player.FootSensorUserData footData = userDataA as Player.FootSensorUserData
-                                             ?? userDataB as Player.FootSensorUserData;
-
-            if (footData != null)
-            {
-                footData.Player.SetCanJump(true);
-            }
-
-            // Check for collectible contacts
-            CheckCollectibleContact(contact.GetFixtureA(), contact.GetFixtureB());
-            CheckCollectibleContact(contact.GetFixtureB(), contact.GetFixtureA());
-        }
-
-        private void CheckCollectibleContact(b2Fixture fixtureA, b2Fixture fixtureB)
-        {
-            // Check if fixA is a collectible and fixB is the player
-            Collectible collectible = fixtureA.UserData as Collectible;
-            if (collectible != null &&
-                fixtureB.Filter.categoryBits == PhysicsHelper.CATEGORY_PLAYER)
-            {
-                // Get the game layer from the player's parent
-                Player.FootSensorUserData playerNode = fixtureB.UserData as Player.FootSensorUserData;
-                if (playerNode != null && collectible.Parent is GameLayer gameLayer)
-                {
-                    collectible.Collect(gameLayer);
-                }
-            }
-        }
-
-        public override void EndContact(b2Contact contact)
-        {
-            // Check for foot sensor contacts to disable jumping
-            object userDataA = contact.GetFixtureA().UserData;
-            object userDataB = contact.GetFixtureB().UserData;
-
-            Player.FootSensorUserData footData = userDataA as Player.FootSensorUserData
-                                             ?? userDataB as Player.FootSensorUserData;
-
-            if (footData != null)
-            {
-                footData.Player.SetCanJump(false);
-            }
-        }
-
-        public override void PostSolve(b2Contact contact, ref b2ContactImpulse impulse)
-        {
-            
-        }
-
-        public override void PreSolve(b2Contact contact, b2Manifold oldManifold)
-        {
-            
         }
     }
 }
