@@ -51,7 +51,7 @@ namespace Platformer
             ));
 
             // Play collection sound
-            CCSimpleAudioEngine.SharedEngine.PlayEffect("coin");
+            CCSimpleAudioEngine.SharedEngine.PlayEffect("coin_pickup");
 
             // Increase score
             gameLayer.IncreaseScore(10);
