@@ -95,6 +95,13 @@ namespace Platformer
             Platform platform2 = new Platform(_world, 600, 100, 200, 32);
             _platforms.Add(platform2);
             AddChild(platform2);
+
+            // Create collectibles
+            for (int i = 0; i < 3; i++)
+            {
+                Collectible coin = new Collectible(_world, 200 + i * 200, 200);
+                AddChild(coin);
+            }
         }
 
         private void RestartGame(object sender)

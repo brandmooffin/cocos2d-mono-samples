@@ -19,6 +19,26 @@ namespace Platformer
             {
                 footData.Player.SetCanJump(true);
             }
+
+            // Check for collectible contacts
+            CheckCollectibleContact(contact.GetFixtureA(), contact.GetFixtureB());
+            CheckCollectibleContact(contact.GetFixtureB(), contact.GetFixtureA());
+        }
+
+        private void CheckCollectibleContact(b2Fixture fixtureA, b2Fixture fixtureB)
+        {
+            // Check if fixA is a collectible and fixB is the player
+            Collectible collectible = fixtureA.UserData as Collectible;
+            if (collectible != null &&
+                fixtureB.Filter.categoryBits == PhysicsHelper.CATEGORY_PLAYER)
+            {
+                // Get the game layer from the player's parent
+                Player.FootSensorUserData playerNode = fixtureB.UserData as Player.FootSensorUserData;
+                if (playerNode != null && collectible.Parent is GameLayer gameLayer)
+                {
+                    collectible.Collect(gameLayer);
+                }
+            }
         }
 
         public override void EndContact(b2Contact contact)

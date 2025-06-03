@@ -40,7 +40,7 @@ namespace Platformer
                 pDirector.SetOpenGlView();
 
                 // Turn on display FPS (optional, for debugging)
-                pDirector.DisplayStats = true;
+                pDirector.DisplayStats = false;
 
                 // Set FPS
                 pDirector.AnimationInterval = 1.0 / 60;
