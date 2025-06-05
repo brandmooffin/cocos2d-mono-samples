@@ -6,7 +6,7 @@
     <TieredCompilation>false</TieredCompilation>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.DesktopGL</PackageId>
-    <Version>2.5.2</Version>
+    <Version>2.5.3</Version>
     <Authors>Cocos2D-Mono Team</Authors>
     <Description>A template project for building DesktopGL games using Cocos2D-Mono.</Description>
     <PackageType>Template</PackageType>
