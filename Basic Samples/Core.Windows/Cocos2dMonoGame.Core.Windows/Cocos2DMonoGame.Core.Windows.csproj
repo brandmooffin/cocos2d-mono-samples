@@ -14,8 +14,8 @@
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.Core.Windows" Version="2.5.0" />
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.2.1105" />
+    <PackageReference Include="Cocos2D-Mono.Core.Windows" Version="2.5.4" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Content\fonts\Marker Felt.ttf">
