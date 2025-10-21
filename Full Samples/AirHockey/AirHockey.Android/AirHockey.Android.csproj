@@ -50,7 +50,7 @@
     </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.4" />
+    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.5" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.4.1" />
     <PackageReference Include="MonoGame.Framework.Android" Version="3.8.4.1" />
   </ItemGroup>
