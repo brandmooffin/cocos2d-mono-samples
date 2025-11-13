@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Cocos2D-Mono.Core.Linux" Version="2.5.5" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.4.1" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="$(MonoGameVersion)" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Content\fonts\Marker Felt.ttf">

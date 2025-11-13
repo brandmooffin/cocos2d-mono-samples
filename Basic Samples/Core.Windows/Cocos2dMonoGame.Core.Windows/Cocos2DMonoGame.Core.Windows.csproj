@@ -15,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Cocos2D-Mono.Core.Windows" Version="2.5.5" />
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.4.1" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="$(MonoGameVersion)" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Content\fonts\Marker Felt.ttf">

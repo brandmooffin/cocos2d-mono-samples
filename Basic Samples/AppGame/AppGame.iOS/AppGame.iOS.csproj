@@ -149,8 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Cocos2D-Mono.iOS" Version="2.5.5" />
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.4.1" />
-    <PackageReference Include="MonoGame.Framework.iOS" Version="3.8.4.1" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
+    <PackageReference Include="MonoGame.Framework.iOS" Version="$(MonoGameVersion)" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Update="TexturePackerGameStoryboard.storyboard">
