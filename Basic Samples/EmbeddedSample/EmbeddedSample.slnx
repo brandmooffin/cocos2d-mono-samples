@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="EmbeddedSample/EmbeddedSample.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
