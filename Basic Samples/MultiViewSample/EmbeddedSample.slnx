@@ -1,9 +1,0 @@
-<Solution>
-  <Project Path="../cocos2d-mono/box2d/box2d.Android/box2d.Android.csproj" />
-  <Project Path="../cocos2d-mono/box2d/box2d.shproj" />
-  <Project Path="../cocos2d-mono/cocos2d/cocos2d.Android/cocos2d.Android.csproj" />
-  <Project Path="../cocos2d-mono/cocos2d/cocos2d.shproj" />
-  <Project Path="EmbeddedSample/EmbeddedSample.csproj">
-    <Deploy Solution="Debug|*" />
-  </Project>
-</Solution>

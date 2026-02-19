@@ -7,7 +7,7 @@ using Android.Widget;
 using Cocos2D;
 using Microsoft.Xna.Framework;
 
-namespace EmbeddedSample
+namespace MultiViewSample
 {
     [Activity(
         Label = "@string/app_name",

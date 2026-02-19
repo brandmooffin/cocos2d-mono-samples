@@ -1,13 +1,14 @@
-using Cocos2D;
+﻿using Cocos2D;
 
-namespace EmbeddedSample
+namespace MultiViewSample
 {
-    public class SecondLayer : CCLayerColor
+    public class IntroLayer : CCLayerColor
     {
-        public SecondLayer()
+        public IntroLayer()
         {
+
             // create and initialize a Label
-            var label = new CCLabelTTF("Second View!", "MarkerFelt", 22)
+            var label = new CCLabelTTF("Hello World!", "MarkerFelt", 22)
             {
                 // position the label on the center of the screen
                 Position = CCDirector.SharedDirector.WinSize.Center
@@ -16,8 +17,8 @@ namespace EmbeddedSample
             // add the label as a child to this Layer
             AddChild(label);
 
-            // setup our color for the background - use green to distinguish from IntroLayer
-            Color = new CCColor3B(Microsoft.Xna.Framework.Color.Green);
+            // setup our color for the background
+            Color = new CCColor3B(Microsoft.Xna.Framework.Color.Blue);
             Opacity = 255;
         }
 
@@ -25,9 +26,16 @@ namespace EmbeddedSample
         {
             get
             {
+                // 'scene' is an autorelease object.
                 var scene = new CCScene();
-                var layer = new SecondLayer();
+
+                // 'layer' is an autorelease object.
+                var layer = new IntroLayer();
+
+                // add layer as a child to scene
                 scene.AddChild(layer);
+
+                // return the scene
                 return scene;
             }
         }

@@ -3,7 +3,7 @@ using Cocos2D;
 using CocosDenshion;
 using Microsoft.Xna.Framework;
 
-namespace EmbeddedSample
+namespace MultiViewSample
 {
     /// <summary>
 	/// This is your extension of the main Cocos2D application object.
