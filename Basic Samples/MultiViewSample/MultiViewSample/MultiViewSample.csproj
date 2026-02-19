@@ -3,8 +3,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Exe</OutputType>
-    <RootNamespace>EmbeddedSample</RootNamespace>
-    <AssemblyName>EmbeddedSample</AssemblyName>
+    <RootNamespace>MultiViewSample</RootNamespace>
+    <AssemblyName>MultiViewSample</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>

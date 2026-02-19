@@ -7,7 +7,7 @@ using Android.Widget;
 using Cocos2D;
 using Microsoft.Xna.Framework;
 
-namespace EmbeddedSample
+namespace MultiViewSample
 {
     [Activity(
         Label = "@string/app_name",
@@ -26,6 +26,7 @@ namespace EmbeddedSample
         private FrameLayout _gameContainer;
         private Button _btnPause;
         private Button _btnResume;
+        private Button _btnSwitch;
         private TextView _txtInfo;
 
         protected override void OnCreate(Bundle bundle)
@@ -39,6 +40,7 @@ namespace EmbeddedSample
             _gameContainer = FindViewById<FrameLayout>(Resource.Id.gameViewContainer);
             _btnPause = FindViewById<Button>(Resource.Id.btnPause);
             _btnResume = FindViewById<Button>(Resource.Id.btnResume);
+            _btnSwitch = FindViewById<Button>(Resource.Id.btnSwitch);
             _txtInfo = FindViewById<TextView>(Resource.Id.txtInfo);
 
             // Wire up button events
@@ -60,6 +62,23 @@ namespace EmbeddedSample
                 }
             };
 
+            // Toggle split-screen mode - shows two scenes side by side
+            _btnSwitch.Click += (s, e) =>
+            {
+                if (_gameView != null)
+                {
+                    _gameView.SplitScreenEnabled = !_gameView.SplitScreenEnabled;
+                    if (_gameView.SplitScreenEnabled)
+                    {
+                        _txtInfo.Text = "Split-screen: IntroLayer (Blue) | SecondLayer (Green)";
+                    }
+                    else
+                    {
+                        _txtInfo.Text = "Single view: IntroLayer (Blue)";
+                    }
+                }
+            };
+
             // Create the CCGameView - size will be determined by the container
             _gameView = new CCGameView(this);
             _gameView.DesignResolution = new CCSize(1024, 768);
@@ -75,7 +94,7 @@ namespace EmbeddedSample
             // Add the game view to our container in the layout
             _gameContainer.AddView(_gameView.AndroidView);
 
-            _txtInfo.Text = "Game view embedded in layout - use buttons to control";
+            _txtInfo.Text = "Split-screen: IntroLayer (Blue) | SecondLayer (Green)";
 
             // Run the game loop (this will block and pump the game update/draw)
             _gameView.Run();
@@ -83,11 +102,20 @@ namespace EmbeddedSample
 
         private void OnViewCreated(object sender, System.EventArgs e)
         {
-            CCLog.Log("ViewCreated fired - starting IntroLayer scene");
+            CCLog.Log("ViewCreated fired - starting scenes");
 
-            var scene = IntroLayer.Scene;
-            _gameView.RunWithScene(scene);
-            CCLog.Log("Scene started");
+            // Set up the primary scene (left side in split-screen)
+            var primaryScene = IntroLayer.Scene;
+            _gameView.RunWithScene(primaryScene, useViewScene: true);
+
+            // Set up the split-screen scene (right side in split-screen)
+            var secondaryScene = SecondLayer.Scene;
+            _gameView.SetSplitScreenScene(secondaryScene);
+
+            // Start in split-screen mode to show both scenes
+            _gameView.SplitScreenEnabled = true;
+
+            CCLog.Log("Split-screen mode enabled with two scenes");
         }
 
         protected override void OnPause()

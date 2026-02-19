@@ -14,7 +14,8 @@ namespace AirHockey.Android
         AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.Landscape | ScreenOrientation.ReverseLandscape,
-        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize
+        ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize,
+        Exported = true
     )]
     public class Activity1 : AndroidGameActivity
     {
