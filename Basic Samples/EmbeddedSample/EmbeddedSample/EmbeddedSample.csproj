@@ -12,7 +12,7 @@
     <TargetFramework>net9.0-android</TargetFramework>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.Android</PackageId>
-    <Version>2.5.2</Version>
+    <Version>2.5.6</Version>
     <Authors>Cocos2D-Mono Team</Authors>
     <Description>A template project for building Android games using Cocos2D-Mono.</Description>
     <PackageType>Template</PackageType>
@@ -71,9 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".config\dotnet-tools.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\cocos2d-mono\cocos2d\cocos2d.Android\cocos2d.Android.csproj" />
   </ItemGroup>
    <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
