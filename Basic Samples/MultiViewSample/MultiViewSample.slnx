@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MultiViewSample/MultiViewSample.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
