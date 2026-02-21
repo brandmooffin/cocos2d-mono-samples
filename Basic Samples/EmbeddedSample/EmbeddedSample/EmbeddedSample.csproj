@@ -12,7 +12,7 @@
     <TargetFramework>net9.0-android</TargetFramework>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.Android</PackageId>
-    <Version>2.5.6</Version>
+    <Version>2.5.7</Version>
     <Authors>Cocos2D-Mono Team</Authors>
     <Description>A template project for building Android games using Cocos2D-Mono.</Description>
     <PackageType>Template</PackageType>
@@ -58,7 +58,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" Visible="false" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.6" />
+    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.7" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Framework.Android" Version="$(MonoGameVersion)" />
   </ItemGroup>
