@@ -22,7 +22,7 @@ namespace Platformer
             AddChild(background, -1);
             
             // Add a simple label to confirm everything is working
-            CCLabelTTF label = new CCLabelTTF("Platformer Tutorial - Part 1", "MarkerFelt", 22);
+            CCLabelTTF label = new CCLabelTTF("Platformer Tutorial - Part 1", "arial", 22);
             label.Position = new CCPoint(visibleSize.Width / 2, visibleSize.Height - 50);
             label.Color = CCColor3B.Blue;
             AddChild(label);

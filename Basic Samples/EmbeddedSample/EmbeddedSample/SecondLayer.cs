@@ -7,7 +7,7 @@ namespace EmbeddedSample
         public SecondLayer()
         {
             // create and initialize a Label
-            var label = new CCLabelTTF("Second View!", "MarkerFelt", 22)
+            var label = new CCLabelTTF("Second View!", "arial", 22)
             {
                 // position the label on the center of the screen
                 Position = CCDirector.SharedDirector.WinSize.Center

@@ -59,12 +59,12 @@ namespace AirHockey.Shared
             AddChild(_ball);
 
             //4. add score display
-            _player1ScoreLabel = new CCLabelTTF("0", "MarkerFelt", 22);
+            _player1ScoreLabel = new CCLabelTTF("0", "arial", 22);
             _player1ScoreLabel.Position = new CCPoint(_screenSize.Width - 60f, _screenSize.Height * 0.5f - 80f);
             _player1ScoreLabel.Rotation = 90;
             AddChild(_player1ScoreLabel);
 
-            _player2ScoreLabel = new CCLabelTTF("0", "MarkerFelt", 22);
+            _player2ScoreLabel = new CCLabelTTF("0", "arial", 22);
             _player2ScoreLabel.Position = new CCPoint(_screenSize.Width - 60f, _screenSize.Height * 0.5f + 80f);
             _player2ScoreLabel.Rotation = 90;
             AddChild(_player2ScoreLabel);
