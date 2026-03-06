@@ -8,7 +8,7 @@ namespace Cocos2DMonoGame.Android
         {
 
             // create and initialize a Label
-            var label = new CCLabelTTF("Hello World!", "MarkerFelt", 22)
+            var label = new CCLabelTTF("Hello World!", "arial", 22)
             {
                 // position the label on the center of the screen
                 Position = CCDirector.SharedDirector.WinSize.Center

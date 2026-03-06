@@ -29,7 +29,7 @@ namespace AppGame.Shared.Scenes
                 Opacity = 255
             };
 
-            var label = new CCLabelTTF("Hello", "MarkerFelt", 64)
+            var label = new CCLabelTTF("Hello", "arial", 64)
             {
                 Color = CCColor3B.White,
                 Position = new CCPoint(ScreenSize.Center.X, ScreenSize.Center.Y + 500)

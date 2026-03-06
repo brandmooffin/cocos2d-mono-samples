@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <PublishReadyToRun>false</PublishReadyToRun>
     <TieredCompilation>false</TieredCompilation>
     <UseWindowsForms>true</UseWindowsForms>
@@ -18,19 +18,19 @@
     <PackageReference Include="MonoGame.Framework.WindowsDX" Version="$(MonoGameVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Content\fonts\Marker Felt.ttf">
+    <None Update="Content\fonts\arial.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Content\fonts\MarkerFelt-16.xnb">
+    <None Update="Content\fonts\arial-16.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Content\fonts\MarkerFelt-18.xnb">
+    <None Update="Content\fonts\arial-18.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Content\fonts\MarkerFelt-22.xnb">
+    <None Update="Content\fonts\arial-22.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Content\fonts\MarkerFelt-64.xnb">
+    <None Update="Content\fonts\arial-64.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

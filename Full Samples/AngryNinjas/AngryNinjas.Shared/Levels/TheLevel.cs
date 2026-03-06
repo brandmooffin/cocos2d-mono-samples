@@ -190,7 +190,7 @@ namespace AngryNinjas.Shared.Levels
             continuePanningScreenOnFingerRelease = true; // if the screen panning is midway between either the sling or targets, when you release your finger the screen will continue panning the last direction it moved (jumpy on iPhone if set to NO)
             reverseHowFingerPansScreen = false; //switch to yes to reverse. 
             topRightTouchEnablesDebugMode = true;  //SET TO NO IN FINAL BUILD
-            useImagesForPointScoreLabels = true; //IF NO, means you use Marker Felt text for scores
+            useImagesForPointScoreLabels = true; //IF NO, means you use arial text for scores
 
             //set up background art
             backgroundLayerClouds = new CCSprite(GameData.SharedData.BackgroundCloudsFileName);  // will return the background clouds file for a particular level
@@ -439,13 +439,13 @@ namespace AngryNinjas.Shared.Levels
             //give the stack a moment to drop, then switches every pieces to static (locks it into position, until the first slingshot)...
             ScheduleOnce(SwitchAllStackObjectsToStatic, 1.0f);
 
-            currentScoreLabel = new CCLabelTTF(String.Format("{0}: Needed", pointsToPassLevel), "MarkerFelt", fontSizeForScore);
+            currentScoreLabel = new CCLabelTTF(String.Format("{0}: Needed", pointsToPassLevel), "arial", fontSizeForScore);
             AddChild(currentScoreLabel, Constants.DepthScore);
             currentScoreLabel.Color = new CCColor3B(255, 255, 255);
             currentScoreLabel.Position = currentScoreLabelStartPosition;
             currentScoreLabel.AnchorPoint = new CCPoint(1, .5f);
             // HighScoreForLevel
-            highScoreLabel = new CCLabelTTF(String.Format("High Score: {0}", GameData.SharedData.HighScoreForLevel), "MarkerFelt", fontSizeForScore);
+            highScoreLabel = new CCLabelTTF(String.Format("High Score: {0}", GameData.SharedData.HighScoreForLevel), "arial", fontSizeForScore);
             AddChild(highScoreLabel, Constants.DepthScore);
             highScoreLabel.Color = new CCColor3B(255, 255, 255);
 
@@ -1498,7 +1498,7 @@ namespace AngryNinjas.Shared.Levels
 
         void ShowPointsWithFontLabelForValue(int pointValue, CCPoint positionToShowScore)
         {
-            CCLabelTTF scoreLabel = new CCLabelTTF(string.Format("{0}", pointValue), "MarkerFelt", 22);
+            CCLabelTTF scoreLabel = new CCLabelTTF(string.Format("{0}", pointValue), "arial", 22);
             AddChild(scoreLabel, Constants.DepthPointScore);
             scoreLabel.Color = new CCColor3B(255, 255, 255);
             scoreLabel.Position = positionToShowScore;
@@ -1641,7 +1641,7 @@ namespace AngryNinjas.Shared.Levels
 
         internal void ShowBoardMessage(string theMessage)
         {
-            CCLabelTTF boardMessage = new CCLabelTTF(theMessage, "MarkerFelt", 22);
+            CCLabelTTF boardMessage = new CCLabelTTF(theMessage, "arial", 22);
             AddChild(boardMessage, Constants.DepthPointScore);
             boardMessage.Color = new CCColor3B(255, 255, 255);
             boardMessage.PositionX = screenWidth / 2;

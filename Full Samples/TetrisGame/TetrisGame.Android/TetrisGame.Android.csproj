@@ -6,7 +6,7 @@
     <FileAlignment>512</FileAlignment>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
-    <TargetFramework>net8.0-android</TargetFramework>
+    <TargetFramework>net9.0-android</TargetFramework>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,11 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Content.mgcb" />
-    <None Include="Content\fonts\MarkerFelt-13.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-16.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-18.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-22.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-64.spritefont" />
+    <None Include="Content\fonts\arial-13.spritefont" />
+    <None Include="Content\fonts\arial-16.spritefont" />
+    <None Include="Content\fonts\arial-18.spritefont" />
+    <None Include="Content\fonts\arial-22.spritefont" />
+    <None Include="Content\fonts\arial-64.spritefont" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" Visible="false" />

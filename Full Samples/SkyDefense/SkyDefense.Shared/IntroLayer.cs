@@ -466,12 +466,12 @@ namespace SkyDefense.Shared
             }
 
             //add HUD
-            _scoreDisplay = new CCLabelTTF("0", "MarkerFelt", 22);
+            _scoreDisplay = new CCLabelTTF("0", "arial", 22);
             _scoreDisplay.AnchorPoint = new CCPoint(1f, 0.5f);
             _scoreDisplay.Position = new CCPoint(_screenSize.Width * 0.8f, _screenSize.Height * 0.94f);
             AddChild(_scoreDisplay);
 
-            _energyDisplay = new CCLabelTTF("100%", "MarkerFelt", 22);
+            _energyDisplay = new CCLabelTTF("100%", "arial", 22);
             _energyDisplay.Position = new CCPoint(_screenSize.Width * 0.3f, _screenSize.Height * 0.94f);
             AddChild(_energyDisplay);
 
