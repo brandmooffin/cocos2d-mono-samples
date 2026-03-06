@@ -16,7 +16,7 @@ namespace AppGame.Shared.Buttons
 
                 OnTapped += Layer_OnTapped;
 
-                ButtonLabel = new CCLabelTTF("Continue", "MarkerFelt", 22)
+                ButtonLabel = new CCLabelTTF("Continue", "arial", 22)
                 {
                     Color = CCColor3B.White,
                     Position = new CCPoint(ContentSize.Center.X, ContentSize.Center.Y)

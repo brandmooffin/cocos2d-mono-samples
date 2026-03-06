@@ -49,10 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Content.mgcb" />
-    <None Include="Content\fonts\MarkerFelt-16.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-18.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-22.spritefont" />
-    <None Include="Content\fonts\MarkerFelt-64.spritefont" />
+    <None Include="Content\fonts\arial-16.spritefont" />
+    <None Include="Content\fonts\arial-18.spritefont" />
+    <None Include="Content\fonts\arial-22.spritefont" />
+    <None Include="Content\fonts\arial-64.spritefont" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" Visible="false" />

@@ -67,13 +67,13 @@ namespace Platformer
             AddChild(_player);
 
             // Create score label
-            _scoreLabel = new CCLabelTTF($"Score: {_score}", "MarkerFelt", 22);
+            _scoreLabel = new CCLabelTTF($"Score: {_score}", "arial", 22);
             _scoreLabel.Position = new CCPoint(100, visibleSize.Height - 30);
             _scoreLabel.Color = CCColor3B.Black;
             AddChild(_scoreLabel, 10);
 
             // Create restart button
-            CCLabelTTF restartLabel = new CCLabelTTF("Restart", "MarkerFelt", 22);
+            CCLabelTTF restartLabel = new CCLabelTTF("Restart", "arial", 22);
             restartLabel.Color = CCColor3B.Black;
             _restartButton = new CCMenuItemLabel(restartLabel, RestartGame);
             _restartButton.Position = new CCPoint(visibleSize.Width - 100, visibleSize.Height - 30);
