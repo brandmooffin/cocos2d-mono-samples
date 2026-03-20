@@ -119,7 +119,7 @@
     <Content Include=".config\dotnet-tools.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.iOS" Version="2.5.7" />
+    <PackageReference Include="Cocos2D-Mono.iOS" Version="2.5.8" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Framework.iOS" Version="$(MonoGameVersion)" />
   </ItemGroup>
