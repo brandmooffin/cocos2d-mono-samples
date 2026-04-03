@@ -10,7 +10,7 @@
 # Cocos2D-Mono Samples
 Here you will find Samples using cocos2d-mono, an easy to use library for simple games using C# and leveraging MonoGame under the hood.
 
-Coco2D-Mono can be found here: https://github.com/brandmooffin/cocos2d-mono
+Coco2D-Mono can be found here: https://github.com/Cocos2D-Mono/cocos2d-mono
 
 
 This library is MIT licensed.
