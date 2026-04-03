@@ -1,6 +1,6 @@
 <div align="center">
 
-![Cocos2D-Mono](https://raw.githubusercontent.com/brandmooffin/cocos2d-mono/master/Logos/logo-full-200.png)
+![Cocos2D-Mono](https://raw.githubusercontent.com/Cocos2D-Mono/cocos2d-mono/master/Logos/logo-full-200.png)
 
 ### MonoGame powered built the cocos2d way!
 
@@ -10,7 +10,7 @@
 # Cocos2D-Mono Samples
 Here you will find Samples using cocos2d-mono, an easy to use library for simple games using C# and leveraging MonoGame under the hood.
 
-Coco2D-Mono can be found here: https://github.com/brandmooffin/cocos2d-mono
+Cocos2D-Mono can be found here: https://github.com/Cocos2D-Mono/cocos2d-mono
 
 
 This library is MIT licensed.
