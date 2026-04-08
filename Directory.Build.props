@@ -2,5 +2,7 @@
   <PropertyGroup>
     <!-- Centralized MonoGame version for all projects -->
     <MonoGameVersion>3.8.4.1</MonoGameVersion>
+    <!-- Centralized Cocos2D-Mono version for all projects -->
+    <Cocos2DMonoVersion>2.5.9</Cocos2DMonoVersion>
   </PropertyGroup>
 </Project>
