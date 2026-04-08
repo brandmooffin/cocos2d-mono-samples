@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>TetrisGame.Android</RootNamespace>
@@ -51,7 +51,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" Visible="false" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.9" />
+    <PackageReference Include="Cocos2D-Mono.Android" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Framework.Android" Version="$(MonoGameVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

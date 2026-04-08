@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
@@ -126,7 +126,7 @@
     <Content Include=".config\dotnet-tools.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.iOS" Version="2.5.9" />
+    <PackageReference Include="Cocos2D-Mono.iOS" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Framework.iOS" Version="$(MonoGameVersion)" />
   </ItemGroup>

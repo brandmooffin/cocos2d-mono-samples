@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0-ios</TargetFramework>
     <OutputType>Exe</OutputType>
@@ -19,7 +19,7 @@
     </CollectBundleResourcesDependsOn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.iOS" Version="2.5.9" />
+    <PackageReference Include="Cocos2D-Mono.iOS" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Framework.iOS" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
   </ItemGroup>

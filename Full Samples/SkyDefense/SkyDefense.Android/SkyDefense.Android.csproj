@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -50,7 +50,7 @@
 		</MonoGameContentReference>
 	</ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.Android" Version="2.5.9" />
+    <PackageReference Include="Cocos2D-Mono.Android" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Framework.Android" Version="$(MonoGameVersion)" />
   </ItemGroup>
