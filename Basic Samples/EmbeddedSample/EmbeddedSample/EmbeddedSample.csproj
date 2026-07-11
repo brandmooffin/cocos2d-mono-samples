@@ -12,7 +12,7 @@
     <TargetFramework>net9.0-android</TargetFramework>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.Android</PackageId>
-    <Version>2.5.9</Version>
+    <Version>$(Cocos2DMonoVersion)</Version>
     <Authors>Cocos2D-Mono Team</Authors>
     <Description>A template project for building Android games using Cocos2D-Mono.</Description>
     <PackageType>Template</PackageType>

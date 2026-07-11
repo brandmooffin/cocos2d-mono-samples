@@ -13,7 +13,7 @@ Here you will find Samples using cocos2d-mono, an easy to use library for simple
 Cocos2D-Mono can be found here: https://github.com/Cocos2D-Mono/cocos2d-mono
 
 
-Cocos2D-Mono itself is licensed under AGPL-3.0 (with a commercial license option); these samples are MIT licensed — see [License](#license) below, so you're free to use them as a starting point for your own projects.
+These samples are MIT licensed (see [License](#license) below). The Cocos2D-Mono engine is licensed separately, under AGPL-3.0 with a commercial license option — review the [engine license](https://github.com/Cocos2D-Mono/cocos2d-mono/blob/master/LICENSE) when redistributing a build that includes it.
 
 Basic Samples
 --------------
@@ -39,9 +39,9 @@ All samples use the NuGet packages for Cocos2D-Mono.
 
 Cocos2D-Mono now ships as a single, multi-targeted package that covers every platform (Windows, Linux, macOS, Android, and iOS) — reference it and the right build is selected automatically from your project's target framework:
 
-  - [Cocos2D-Mono](https://www.nuget.org/packages/Cocos2D-Mono/) — the engine, including the MonoGame content-pipeline (MGCB) build task.
+  - [Cocos2D-Mono](https://www.nuget.org/packages/Cocos2D-Mono/) — the engine. It takes a dependency on the MonoGame content-pipeline task, but MGCB's MSBuild targets do not flow transitively, so projects that use the content pipeline — these samples included — also reference `MonoGame.Content.Builder.Task` directly.
 
-  - [Cocos2D-Mono.Core](https://www.nuget.org/packages/Cocos2D-Mono.Core/) — the same engine without the content-pipeline dependency, for projects that don't use MGCB.
+  - [Cocos2D-Mono.Core](https://www.nuget.org/packages/Cocos2D-Mono.Core/) — the same engine with no MGCB dependency at all, for projects that don't use the content pipeline.
 
   - [Cocos2D-Mono.Box2D](https://www.nuget.org/packages/Cocos2D-Mono.Box2D/) — the Box2D physics port (also included transitively through the packages above).
 
