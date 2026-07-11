@@ -13,7 +13,7 @@ Here you will find Samples using cocos2d-mono, an easy to use library for simple
 Cocos2D-Mono can be found here: https://github.com/Cocos2D-Mono/cocos2d-mono
 
 
-This library is MIT licensed.
+These samples are MIT licensed (see [License](#license) below). The Cocos2D-Mono engine is licensed separately, under AGPL-3.0 with a commercial license option — review the [engine license](https://github.com/Cocos2D-Mono/cocos2d-mono/blob/master/LICENSE) when redistributing a build that includes it.
 
 Basic Samples
 --------------
@@ -35,34 +35,15 @@ MIT License.
 
 NuGet
 -----
-All samples use the NuGet packages for cocos2d-mono.
+All samples use the NuGet packages for Cocos2D-Mono.
 
-NuGet Packages can be found here:
+Cocos2D-Mono now ships as a single, multi-targeted package that covers every platform (Windows, Linux, macOS, Android, and iOS) — reference it and the right build is selected automatically from your project's target framework:
 
-  - Android: [Cocos2D-Mono.Android](https://www.nuget.org/packages/Cocos2D-Mono.Android/)
+  - [Cocos2D-Mono](https://www.nuget.org/packages/Cocos2D-Mono/) — the engine. It takes a dependency on the MonoGame content-pipeline task, but MGCB's MSBuild targets do not flow transitively, so projects that use the content pipeline — these samples included — also reference `MonoGame.Content.Builder.Task` directly.
 
-  - DesktopGL (Windows, Linux, macOS): [Cocos2D-Mono.DesktopGL](https://www.nuget.org/packages/Cocos2D-Mono.DesktopGL/)
+  - [Cocos2D-Mono.Core](https://www.nuget.org/packages/Cocos2D-Mono.Core/) — the same engine with no MGCB dependency at all, for projects that don't use the content pipeline.
 
-  - iOS: [Cocos2D-Mono.iOS](https://www.nuget.org/packages/Cocos2D-Mono.iOS/)
-
-  - Linux: [Cocos2D-Mono.Linux](https://www.nuget.org/packages/Cocos2D-Mono.Linux/)
-
-  - macOS: [Cocos2D-Mono.macOS](https://www.nuget.org/packages/Cocos2D-Mono.macOS/)
-
-  - Windows: [Cocos2D-Mono.Windows](https://www.nuget.org/packages/Cocos2D-Mono.Windows/)
-Core NuGet Packages are also available. These packages do not contain the MonoGame Content Pipeline which is typically used to generate .xnb files used at runtime.
-
-  - Core Android: [Cocos2D-Mono.Core.Android](https://www.nuget.org/packages/Cocos2D-Mono.Core.Android/)
-
-  - Core DesktopGL: [Cocos2D-Mono.Core.DesktopGL](https://www.nuget.org/packages/Cocos2D-Mono.Core.DesktopGL/)
-
-  - Core iOS: [Cocos2D-Mono.Core.iOS](https://www.nuget.org/packages/Cocos2D-Mono.Core.iOS/)
-
-  - Core Linux: [Cocos2D-Mono.Core.Linux](https://www.nuget.org/packages/Cocos2D-Mono.Core.Linux/)
-
-  - Core macOS: [Cocos2D-Mono.Core.macOS](https://www.nuget.org/packages/Cocos2D-Mono.Core.macOS/)
-
-  - Core Windows: [Cocos2D-Mono.Core.Windows](https://www.nuget.org/packages/Cocos2D-Mono.Core.Windows/)
+  - [Cocos2D-Mono.Box2D](https://www.nuget.org/packages/Cocos2D-Mono.Box2D/) — the Box2D physics port (also included transitively through the packages above).
 
 Project Templates
 -----------------

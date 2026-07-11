@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
@@ -6,7 +6,7 @@
     <TieredCompilation>false</TieredCompilation>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.DesktopGL</PackageId>
-    <Version>2.5.9</Version>
+    <Version>$(Cocos2DMonoVersion)</Version>
     <Authors>Cocos2D-Mono Team</Authors>
     <Description>A template project for building DesktopGL games using Cocos2D-Mono.</Description>
     <PackageType>Template</PackageType>
@@ -37,7 +37,7 @@
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.DesktopGL" Version="2.5.9" />
+    <PackageReference Include="Cocos2D-Mono" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
   </ItemGroup>
