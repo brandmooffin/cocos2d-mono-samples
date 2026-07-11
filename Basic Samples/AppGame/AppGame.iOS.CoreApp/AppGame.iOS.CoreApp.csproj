@@ -19,7 +19,7 @@
     </CollectBundleResourcesDependsOn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cocos2D-Mono.iOS" Version="$(Cocos2DMonoVersion)" />
+    <PackageReference Include="Cocos2D-Mono" Version="$(Cocos2DMonoVersion)" />
     <PackageReference Include="MonoGame.Framework.iOS" Version="$(MonoGameVersion)" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="$(MonoGameVersion)" />
   </ItemGroup>
