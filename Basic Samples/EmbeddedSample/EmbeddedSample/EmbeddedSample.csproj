@@ -9,7 +9,7 @@
     <AndroidApplication>true</AndroidApplication>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
-    <TargetFramework>net9.0-android</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
     <PackAsTool>false</PackAsTool>
     <PackageId>Cocos2DMono.Android</PackageId>
     <Version>$(Cocos2DMonoVersion)</Version>
