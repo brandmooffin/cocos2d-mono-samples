@@ -122,7 +122,12 @@ namespace Platformer
             // Reset score
             _score = 0;
 
+            // Destroy enemy physics bodies before rebuilding the level -
+            // removing the sprites alone would leave invisible bodies behind
+            foreach (Enemy enemy in _enemies)
+                enemy.RemoveFromWorld();
             _enemies.Clear();
+
             RemoveAllChildren();
             CreateLevel();
         }

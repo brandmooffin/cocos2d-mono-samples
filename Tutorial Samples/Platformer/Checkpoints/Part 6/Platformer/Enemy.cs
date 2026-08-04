@@ -103,8 +103,7 @@ namespace Platformer
             _isDefeated = true;
 
             // Remove from the physics world (same pattern as Collectible.Collect)
-            _body.World.DestroyBody(_body);
-            _body = null;
+            RemoveFromWorld();
 
             // Squash, fade, and remove the sprite
             RunAction(new CCSequence(
@@ -118,6 +117,15 @@ namespace Platformer
             CCSimpleAudioEngine.SharedEngine.PlayEffect("land");
 
             gameLayer.IncreaseScore(25);
+        }
+
+        public void RemoveFromWorld()
+        {
+            if (_body != null)
+            {
+                _body.World.DestroyBody(_body);
+                _body = null;
+            }
         }
 
         // User data for the head sensor - lets the contact listener recognize

@@ -32,7 +32,7 @@ namespace Platformer
             b2Fixture fixture = _body.FixtureList;
             b2Filter filter = fixture.Filter;
             filter.categoryBits = PhysicsHelper.CATEGORY_PLATFORM;
-            filter.maskBits = PhysicsHelper.CATEGORY_PLAYER;
+            filter.maskBits = PhysicsHelper.CATEGORY_PLAYER | PhysicsHelper.CATEGORY_ENEMY;
             fixture.SetFilterData(filter);
 
             // Store reference to this platform
