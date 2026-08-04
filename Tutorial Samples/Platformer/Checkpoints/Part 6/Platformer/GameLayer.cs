@@ -34,11 +34,8 @@ namespace Platformer
 
         public GameLayer()
         {
-            // Initialize physics world with gravity
-            _world = new b2World(new b2Vec2(0, -10.0f));
-            
             _contactListener = new ContactListener();
-            _world.SetContactListener(_contactListener);
+            CreatePhysicsWorld();
 
             // Create level
             CreateLevel();
@@ -51,6 +48,13 @@ namespace Platformer
             CCSimpleAudioEngine.SharedEngine.PlayBackgroundMusic("game_music", true);
 
             ScheduleUpdate();
+        }
+
+        private void CreatePhysicsWorld()
+        {
+            // Initialize physics world with gravity
+            _world = new b2World(new b2Vec2(0, -10.0f));
+            _world.SetContactListener(_contactListener);
         }
 
         private void CreateLevel()
@@ -123,11 +127,14 @@ namespace Platformer
             // Reset score
             _score = 0;
 
-            // Destroy enemy physics bodies before rebuilding the level -
-            // removing the sprites alone would leave invisible bodies behind
-            foreach (Enemy enemy in _enemies)
-                enemy.RemoveFromWorld();
+            // Sprites and physics bodies have different lifetimes:
+            // RemoveAllChildren only clears the scene graph, and bodies the
+            // level created (player, platforms, coins, enemies) would live
+            // on invisibly in the old world. Rebuilding the physics world
+            // from scratch guarantees no orphaned bodies survive a restart.
+            CreatePhysicsWorld();
             _enemies.Clear();
+            _platforms.Clear();
 
             // Drop any contact results recorded for the old level
             _contactListener.PendingStomps.Clear();
