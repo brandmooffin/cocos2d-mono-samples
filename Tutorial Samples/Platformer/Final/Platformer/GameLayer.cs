@@ -132,6 +132,7 @@ namespace Platformer
             // Drop any contact results recorded for the old level
             _contactListener.PendingStomps.Clear();
             _contactListener.PendingSideHits.Clear();
+            _contactListener.PendingCollections.Clear();
 
             RemoveAllChildren();
             CreateLevel();
@@ -174,6 +175,13 @@ namespace Platformer
                     OnPlayerHit();
             }
             _contactListener.PendingSideHits.Clear();
+
+            foreach (Collectible coin in _contactListener.PendingCollections)
+            {
+                if (!coin.IsCollected)
+                    coin.Collect(this);
+            }
+            _contactListener.PendingCollections.Clear();
 
             // Update player movement based on input
             if (_isLeftPressed)

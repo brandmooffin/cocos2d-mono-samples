@@ -9,6 +9,9 @@ namespace Platformer
     public class Collectible : CCSprite
     {
         private b2Body _body;
+        private bool _isCollected;
+
+        public bool IsCollected { get { return _isCollected; } }
 
         public Collectible(b2World world, float x, float y) : base("coin")
         {
@@ -39,7 +42,15 @@ namespace Platformer
 
         public void Collect(GameLayer gameLayer)
         {
-            // Remove from physics world
+            if (_isCollected)
+                return;
+
+            _isCollected = true;
+
+            // Collect is resolved from GameLayer.Update, AFTER the physics
+            // step - never from inside a contact callback, where the world
+            // is locked and silently ignores DestroyBody. That makes it
+            // safe to destroy the body right here.
             _body.World.DestroyBody(_body);
             _body = null;
 
