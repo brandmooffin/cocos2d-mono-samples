@@ -121,6 +121,11 @@ namespace Platformer
             _body.LinearVelocity = new b2Vec2(_body.LinearVelocity.x, JUMP_FORCE * 0.6f);
         }
 
+        public bool IsFalling
+        {
+            get { return _body.LinearVelocity.y <= 0; }
+        }
+
         public void MoveLeft()
         {
             _body.LinearVelocity = new b2Vec2(-MOVE_SPEED, _body.LinearVelocity.y);

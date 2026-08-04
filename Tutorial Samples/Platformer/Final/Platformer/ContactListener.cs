@@ -38,7 +38,11 @@ namespace Platformer
 
             if (headData != null && footData != null)
             {
-                if (headData.Enemy.Parent is GameLayer stompLayer)
+                // Only a falling player squashes the enemy - the same contact
+                // fires when jumping UP past the head zone, and that shouldn't
+                // count as a stomp.
+                if (footData.Player.IsFalling &&
+                    headData.Enemy.Parent is GameLayer stompLayer)
                 {
                     headData.Enemy.Defeat(stompLayer);
                     footData.Player.Bounce();

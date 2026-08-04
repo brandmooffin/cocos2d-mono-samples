@@ -58,12 +58,14 @@ namespace Platformer
             _body.CreateFixture(fixtureDef).UserData = this;
 
             // Head sensor - the player defeats the enemy by landing on this.
-            // Mirrors the player's foot sensor from Part 3: a thin sensor box,
-            // this time sitting on TOP of the body.
+            // Mirrors the player's foot sensor from Part 3, sitting on TOP of
+            // the body - and slightly WIDER than the body box. If it were
+            // narrower, the player could land on an uncovered edge of the
+            // solid body and stand there without triggering the stomp.
             b2PolygonShape headShape = new b2PolygonShape();
             headShape.SetAsBox(
-                ContentSize.Width * 0.3f / PhysicsHelper.PTM_RATIO,
-                0.1f / PhysicsHelper.PTM_RATIO,
+                ContentSize.Width * 0.5f / PhysicsHelper.PTM_RATIO,
+                3f / PhysicsHelper.PTM_RATIO,
                 new b2Vec2(0, ContentSize.Height * 0.45f / PhysicsHelper.PTM_RATIO),
                 0);
 
