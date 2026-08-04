@@ -128,6 +128,10 @@ namespace Platformer
                 enemy.RemoveFromWorld();
             _enemies.Clear();
 
+            // Drop any contact results recorded for the old level
+            _contactListener.PendingStomps.Clear();
+            _contactListener.PendingSideHits.Clear();
+
             RemoveAllChildren();
             CreateLevel();
         }
@@ -149,6 +153,26 @@ namespace Platformer
         {
             // Update physics world
             _world.Step(dt, 8, 3);
+
+            // Resolve enemy contacts recorded during the step. Stomps resolve
+            // first, so when a stomp and a side hit arrive in the same step
+            // the stomp always wins - regardless of Box2D's contact order.
+            foreach (Enemy enemy in _contactListener.PendingStomps)
+            {
+                if (!enemy.IsDefeated)
+                {
+                    enemy.Defeat(this);
+                    _player.Bounce();
+                }
+            }
+            _contactListener.PendingStomps.Clear();
+
+            foreach (Enemy enemy in _contactListener.PendingSideHits)
+            {
+                if (!enemy.IsDefeated)
+                    OnPlayerHit();
+            }
+            _contactListener.PendingSideHits.Clear();
 
             // Update player movement based on input
             if (_isLeftPressed)

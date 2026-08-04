@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Box2D.Collision;
 using Box2D.Dynamics;
 using Box2D.Dynamics.Contacts;
@@ -6,6 +7,17 @@ namespace Platformer
 {
     public class ContactListener : b2ContactListener
     {
+        // Contact callbacks run in the middle of world.Step, while the world
+        // is locked and the order of same-step contacts is unspecified. So
+        // the callbacks below only RECORD what happened; GameLayer.Update
+        // resolves the results after the step, where stomps can reliably win
+        // over side hits and physics bodies can safely be destroyed.
+        private readonly List<Enemy> _pendingStomps = new List<Enemy>();
+        private readonly List<Enemy> _pendingSideHits = new List<Enemy>();
+
+        public List<Enemy> PendingStomps { get { return _pendingStomps; } }
+        public List<Enemy> PendingSideHits { get { return _pendingSideHits; } }
+
         public override void BeginContact(b2Contact contact)
         {
             // Check for foot sensor contacts to enable jumping
@@ -38,14 +50,13 @@ namespace Platformer
 
             if (headData != null && footData != null)
             {
-                // Only a falling player squashes the enemy - the same contact
+                // Only a falling player scores a stomp - the same contact
                 // fires when jumping UP past the head zone, and that shouldn't
-                // count as a stomp.
+                // count.
                 if (footData.Player.IsFalling &&
-                    headData.Enemy.Parent is GameLayer stompLayer)
+                    !_pendingStomps.Contains(headData.Enemy))
                 {
-                    headData.Enemy.Defeat(stompLayer);
-                    footData.Player.Bounce();
+                    _pendingStomps.Add(headData.Enemy);
                 }
                 return;
             }
@@ -58,17 +69,9 @@ namespace Platformer
                 !fixtureB.IsSensor &&
                 fixtureB.Filter.categoryBits == PhysicsHelper.CATEGORY_PLAYER)
             {
-                // A stomp can begin the sensor contact and this body contact
-                // in the same physics step, and Box2D reports them in an
-                // unspecified order. If the player is falling from above,
-                // let the stomp win instead of counting it as damage.
-                if (fixtureB.Body.LinearVelocity.y <= 0 &&
-                    fixtureB.Body.Position.y > fixtureA.Body.Position.y)
-                    return;
-
-                if (enemy.Parent is GameLayer gameLayer)
+                if (!_pendingSideHits.Contains(enemy))
                 {
-                    gameLayer.OnPlayerHit();
+                    _pendingSideHits.Add(enemy);
                 }
             }
         }
@@ -106,12 +109,12 @@ namespace Platformer
 
         public override void PostSolve(b2Contact contact, ref b2ContactImpulse impulse)
         {
-            
+
         }
 
         public override void PreSolve(b2Contact contact, b2Manifold oldManifold)
         {
-            
+
         }
     }
 }
