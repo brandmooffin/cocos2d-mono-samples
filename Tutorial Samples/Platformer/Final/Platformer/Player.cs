@@ -113,6 +113,11 @@ namespace Platformer
             // Reset to the starting position
             _body.SetTransform(new b2Vec2(100 / PhysicsHelper.PTM_RATIO, 300 / PhysicsHelper.PTM_RATIO), 0);
             _body.LinearVelocity = b2Vec2.Zero;
+
+            // Fresh spawn state - a player hit in mid-air shouldn't carry
+            // exhausted jumps into the respawn
+            _jumpCount = 0;
+            _canJump = false;
         }
 
         public void Bounce()

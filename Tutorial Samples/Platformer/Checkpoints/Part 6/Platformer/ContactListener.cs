@@ -58,6 +58,14 @@ namespace Platformer
                 !fixtureB.IsSensor &&
                 fixtureB.Filter.categoryBits == PhysicsHelper.CATEGORY_PLAYER)
             {
+                // A stomp can begin the sensor contact and this body contact
+                // in the same physics step, and Box2D reports them in an
+                // unspecified order. If the player is falling from above,
+                // let the stomp win instead of counting it as damage.
+                if (fixtureB.Body.LinearVelocity.y <= 0 &&
+                    fixtureB.Body.Position.y > fixtureA.Body.Position.y)
+                    return;
+
                 if (enemy.Parent is GameLayer gameLayer)
                 {
                     gameLayer.OnPlayerHit();

@@ -32,6 +32,10 @@ namespace Platformer
             _patrolMinX = patrolMinX;
             _patrolMaxX = patrolMaxX;
 
+            // Start the sprite at the spawn point - otherwise the first frame
+            // draws at (0,0) before Update syncs it to the physics body
+            Position = new CCPoint(x, y);
+
             // Create physics body (dynamic, like the player: it walks and falls)
             b2BodyDef bodyDef = new b2BodyDef();
             bodyDef.type = b2BodyType.b2_dynamicBody;
@@ -72,6 +76,12 @@ namespace Platformer
             b2FixtureDef headFixtureDef = new b2FixtureDef();
             headFixtureDef.shape = headShape;
             headFixtureDef.isSensor = true;
+            // Explicit filter: an unset filter defaults to category 0x0001 -
+            // the same value as CATEGORY_PLAYER - with mask 0xFFFF, so the
+            // head would masquerade as the player in category checks and
+            // generate contacts with platforms, coins, and other enemies.
+            headFixtureDef.filter.categoryBits = PhysicsHelper.CATEGORY_ENEMY;
+            headFixtureDef.filter.maskBits = PhysicsHelper.CATEGORY_PLAYER;
 
             b2Fixture headSensor = _body.CreateFixture(headFixtureDef);
             headSensor.UserData = new HeadSensorUserData(this);
