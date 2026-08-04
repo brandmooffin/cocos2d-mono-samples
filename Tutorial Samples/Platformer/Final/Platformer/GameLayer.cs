@@ -24,6 +24,7 @@ namespace Platformer
         private bool _isLeftPressed;
         private bool _isRightPressed;
         private bool _isJumpPressed;
+        private bool _wasJumpPressed;
 
         private int _score = 0;
         private CCLabelTTF _scoreLabel;
@@ -182,8 +183,11 @@ namespace Platformer
             else
                 _player.StopMoving();
 
-            if (_isJumpPressed)
+            // Jump on the key-press edge, not every held frame - otherwise
+            // holding Space would burn both jumps back to back
+            if (_isJumpPressed && !_wasJumpPressed)
                 _player.Jump();
+            _wasJumpPressed = _isJumpPressed;
 
             // Update all game objects
             _player.Update(dt);

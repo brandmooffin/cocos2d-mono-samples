@@ -45,11 +45,17 @@ namespace Platformer
 
             _body = world.CreateBody(bodyDef);
 
-            // Body fixture - collides with platforms and the player
+            // Body fixture - collides with platforms and the player.
+            // Sized to the VISIBLE art, not the texture: player_idle's 64x64
+            // canvas is mostly transparent padding, with the ~26x31 character
+            // sitting bottom-center. Boxing the whole texture would let the
+            // empty air beside the enemy hit the player.
             b2PolygonShape shape = new b2PolygonShape();
             shape.SetAsBox(
-                ContentSize.Width * 0.4f / PhysicsHelper.PTM_RATIO,
-                ContentSize.Height * 0.45f / PhysicsHelper.PTM_RATIO);
+                ContentSize.Width * 0.2f / PhysicsHelper.PTM_RATIO,
+                ContentSize.Height * 0.25f / PhysicsHelper.PTM_RATIO,
+                new b2Vec2(0, -ContentSize.Height * 0.25f / PhysicsHelper.PTM_RATIO),
+                0);
 
             b2FixtureDef fixtureDef = new b2FixtureDef();
             fixtureDef.shape = shape;
@@ -62,15 +68,16 @@ namespace Platformer
             _body.CreateFixture(fixtureDef).UserData = this;
 
             // Head sensor - the player defeats the enemy by landing on this.
-            // Mirrors the player's foot sensor from Part 3, sitting on TOP of
-            // the body - and slightly WIDER than the body box. If it were
-            // narrower, the player could land on an uncovered edge of the
-            // solid body and stand there without triggering the stomp.
+            // The body box is bottom-aligned, so its top face - the visible
+            // head - sits at the sprite's vertical center (y = 0). The sensor
+            // is WIDER than the body box: wide enough that every position
+            // where the player can physically stand on the enemy registers
+            // as a stomp, leaving no edge to perch on.
             b2PolygonShape headShape = new b2PolygonShape();
             headShape.SetAsBox(
-                ContentSize.Width * 0.5f / PhysicsHelper.PTM_RATIO,
+                ContentSize.Width * 0.35f / PhysicsHelper.PTM_RATIO,
                 3f / PhysicsHelper.PTM_RATIO,
-                new b2Vec2(0, ContentSize.Height * 0.45f / PhysicsHelper.PTM_RATIO),
+                new b2Vec2(0, 0),
                 0);
 
             b2FixtureDef headFixtureDef = new b2FixtureDef();

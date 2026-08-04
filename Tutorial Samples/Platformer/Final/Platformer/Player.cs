@@ -176,11 +176,15 @@ namespace Platformer
 
         public void Jump()
         {
-            if (_canJump && _jumpCount < MAX_JUMPS)
+            // First jump needs the ground under the foot sensor; the one
+            // mid-air follow-up is the double jump. (_canJump is the grounded
+            // flag; _jumpCount resets when the player lands.)
+            bool canAirJump = _jumpCount > 0 && _jumpCount < MAX_JUMPS;
+
+            if (_canJump || canAirJump)
             {
                 _body.LinearVelocity = new b2Vec2(_body.LinearVelocity.x, JUMP_FORCE);
                 _jumpCount++;
-                _canJump = (_jumpCount < MAX_JUMPS);
 
                 _isRunning = false; // Stop running animation when jumping
                 // Play jump animation
