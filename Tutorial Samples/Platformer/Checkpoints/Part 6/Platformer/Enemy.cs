@@ -121,7 +121,7 @@ namespace Platformer
         }
 
         // User data for the head sensor - lets the contact listener recognize
-        // "the player landed on an enemy" (see ContactListener.CheckEnemyContacts).
+        // "the player landed on an enemy" (see ContactListener.CheckEnemyContact).
         public class HeadSensorUserData
         {
             public Enemy Enemy { get; private set; }
