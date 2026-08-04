@@ -78,7 +78,14 @@ namespace Platformer
         public void Update(float dt)
         {
             if (_isDefeated)
+            {
+                // Deferred cleanup: Defeat runs inside a contact callback,
+                // while the world is locked mid-step and DestroyBody is
+                // silently ignored. Update runs after the step, so the
+                // body can be destroyed for real here.
+                RemoveFromWorld();
                 return;
+            }
 
             // Sync the sprite with the physics body
             Position = PhysicsHelper.ToCocosVector(_body.Position);
@@ -102,8 +109,10 @@ namespace Platformer
 
             _isDefeated = true;
 
-            // Remove from the physics world (same pattern as Collectible.Collect)
-            RemoveFromWorld();
+            // The body is NOT destroyed here: Defeat is called from a
+            // contact callback, while the physics world is locked mid-step
+            // and silently ignores DestroyBody. Update destroys it on the
+            // next frame, once the step has finished.
 
             // Squash, fade, and remove the sprite
             RunAction(new CCSequence(
