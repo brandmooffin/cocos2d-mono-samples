@@ -21,16 +21,8 @@ namespace Platformer
         public override void BeginContact(b2Contact contact)
         {
             // Check for foot sensor contacts to enable jumping
-            object userDataA = contact.GetFixtureA().UserData;
-            object userDataB = contact.GetFixtureB().UserData;
-
-            Player.FootSensorUserData footData = userDataA as Player.FootSensorUserData
-                                                 ?? userDataB as Player.FootSensorUserData;
-
-            if (footData != null)
-            {
-                footData.Player.SetCanJump(true);
-            }
+            CheckFootContact(contact.GetFixtureA(), contact.GetFixtureB(), true);
+            CheckFootContact(contact.GetFixtureB(), contact.GetFixtureA(), true);
 
             // Check for collectible contacts
             CheckCollectibleContact(contact.GetFixtureA(), contact.GetFixtureB());
@@ -39,6 +31,22 @@ namespace Platformer
             // Check for enemy contacts (stomp or side hit)
             CheckEnemyContact(contact.GetFixtureA(), contact.GetFixtureB());
             CheckEnemyContact(contact.GetFixtureB(), contact.GetFixtureA());
+        }
+
+        private void CheckFootContact(b2Fixture fixtureA, b2Fixture fixtureB, bool began)
+        {
+            Player.FootSensorUserData footData = fixtureA.UserData as Player.FootSensorUserData;
+            if (footData == null)
+                return;
+
+            // Only solid platform ground counts as standing on something.
+            // The foot sensor also brushes coins and enemy head sensors,
+            // and those must not reset the player's jumps mid-air.
+            if (fixtureB.IsSensor ||
+                fixtureB.Filter.categoryBits != PhysicsHelper.CATEGORY_PLATFORM)
+                return;
+
+            footData.Player.SetCanJump(began);
         }
 
         private void CheckEnemyContact(b2Fixture fixtureA, b2Fixture fixtureB)
@@ -95,16 +103,8 @@ namespace Platformer
         public override void EndContact(b2Contact contact)
         {
             // Check for foot sensor contacts to disable jumping
-            object userDataA = contact.GetFixtureA().UserData;
-            object userDataB = contact.GetFixtureB().UserData;
-
-            Player.FootSensorUserData footData = userDataA as Player.FootSensorUserData
-                                                 ?? userDataB as Player.FootSensorUserData;
-
-            if (footData != null)
-            {
-                footData.Player.SetCanJump(false);
-            }
+            CheckFootContact(contact.GetFixtureA(), contact.GetFixtureB(), false);
+            CheckFootContact(contact.GetFixtureB(), contact.GetFixtureA(), false);
         }
 
         public override void PostSolve(b2Contact contact, ref b2ContactImpulse impulse)
