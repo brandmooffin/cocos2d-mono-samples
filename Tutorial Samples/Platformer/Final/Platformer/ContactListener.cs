@@ -14,9 +14,11 @@ namespace Platformer
         // over side hits and physics bodies can safely be destroyed.
         private readonly List<Enemy> _pendingStomps = new List<Enemy>();
         private readonly List<Enemy> _pendingSideHits = new List<Enemy>();
+        private readonly List<Collectible> _pendingCollections = new List<Collectible>();
 
         public List<Enemy> PendingStomps { get { return _pendingStomps; } }
         public List<Enemy> PendingSideHits { get { return _pendingSideHits; } }
+        public List<Collectible> PendingCollections { get { return _pendingCollections; } }
 
         public override void BeginContact(b2Contact contact)
         {
@@ -86,16 +88,17 @@ namespace Platformer
 
         private void CheckCollectibleContact(b2Fixture fixtureA, b2Fixture fixtureB)
         {
-            // Check if fixA is a collectible and fixB is the player
+            // Record a pickup when any PLAYER-category fixture touches a
+            // coin. Both player fixtures qualify (the body, and the foot
+            // sensor's default filter) - requiring a specific one would make
+            // pickups depend on which fixture happens to overlap first.
             Collectible collectible = fixtureA.UserData as Collectible;
-            if (collectible != null &&
+            if (collectible != null && !collectible.IsCollected &&
                 fixtureB.Filter.categoryBits == PhysicsHelper.CATEGORY_PLAYER)
             {
-                // Get the game layer from the player's parent
-                Player.FootSensorUserData playerNode = fixtureB.UserData as Player.FootSensorUserData;
-                if (playerNode != null && collectible.Parent is GameLayer gameLayer)
+                if (!_pendingCollections.Contains(collectible))
                 {
-                    collectible.Collect(gameLayer);
+                    _pendingCollections.Add(collectible);
                 }
             }
         }
