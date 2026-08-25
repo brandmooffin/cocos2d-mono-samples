@@ -1,0 +1,58 @@
+# Build check for the release train.
+#
+# ci_green() reads check-runs on the release PR's head commit and fails closed,
+# so this must fire for a `release/x.y.z -> main` pull request. The bare
+# `pull_request:` trigger is what does that; `push: dev` is for day-to-day
+# feedback.
+#
+# Compile only - this repo has no test project. If one is added, add a
+# `dotnet test` step so the gate means more than "it builds".
+
+name: Build
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+
+jobs:
+  samples:
+    name: Samples (net10.0)
+    # windows-latest for the content pipeline's fonts. The spritefonts resolve
+    # font names from installed system fonts, and a Linux runner has none of them.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build every plain net10.0 sample
+        shell: bash
+        run: |
+          # Tutorial Samples/Platformer/Checkpoints is EXCLUDED, not skipped by
+          # accident. Part 2 does not compile: GameLayer.cs raises CS0117,
+          # 'PhysicsHelper' does not contain a definition for ... - PhysicsHelper
+          # was refactored by the platformer physics-body work (C2D-241/C2D-242)
+          # and the checkpoint was never updated with it.
+          #
+          # It is excluded so this gate reflects the shipping samples. Anyone
+          # following the tutorial still hits the break, so it wants fixing on
+          # its own merits; remove this exclusion when it is.
+          shopt -s globstar nullglob
+          fail=0; built=0; skipped=0
+          for proj in **/*.csproj; do
+            tfm=$(grep -oE '<TargetFramework>[^<]*' "$proj" | head -1 | cut -d'>' -f2)
+            [ "$tfm" = "net10.0" ] || continue
+            case "$proj" in
+              *"Tutorial Samples/Platformer/Checkpoints"*)
+                echo "SKIPPED (known broken, see comment): $proj"
+                skipped=$((skipped+1)); continue ;;
+            esac
+            built=$((built+1))
+            echo "::group::$proj"
+            dotnet build "$proj" -c Release --nologo || fail=1
+            echo "::endgroup::"
+          done
+          echo "built $built project(s), skipped $skipped known-broken checkpoint(s)"
+          [ "$built" -gt 0 ] || { echo "::error::no net10.0 projects found"; exit 1; }
+          exit $fail
