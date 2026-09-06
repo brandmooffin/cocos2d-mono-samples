@@ -60,3 +60,5 @@ Check out the [guides](https://cocos2d-mono.dev/docs/category/getting-started) t
 # Contributing
 
 Thanks so much for your interest in cocos2d-mono and wanting to contribute to the project! Here's a [guide](https://cocos2d-mono.dev/docs/category/contributing) to help you get started.
+
+Branch from `dev` and target your pull request at `dev` — `main` is release-only. The working conventions shared across every Cocos2D-Mono repository (branching, verification expectations, API stability, release flow) live in [`CONTRIBUTING.md`](https://github.com/Cocos2D-Mono/cocos2d-mono/blob/master/CONTRIBUTING.md) in the engine repository.
