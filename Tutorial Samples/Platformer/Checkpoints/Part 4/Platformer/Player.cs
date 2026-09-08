@@ -36,11 +36,17 @@ namespace Platformer
             _body = world.CreateBody(bodyDef);
 
             // Create fixture
+            // Size the box to the VISIBLE art, not the texture. player_idle's
+            // 64x64 canvas holds a ~26x31 character sitting bottom-centre, so a
+            // centred box built from ContentSize leaves ~30px of empty collision
+            // above the head (an invisible ceiling) and overhangs ~13px per side.
+            // Bottom-align it instead.
             b2PolygonShape shape = new b2PolygonShape();
-            // Make the collision box slightly smaller than the sprite
             shape.SetAsBox(
-                ContentSize.Width * 0.4f / PhysicsHelper.PTM_RATIO,
-                ContentSize.Height * 0.45f / PhysicsHelper.PTM_RATIO);
+                ContentSize.Width * 0.2f / PhysicsHelper.PTM_RATIO,
+                ContentSize.Height * 0.25f / PhysicsHelper.PTM_RATIO,
+                new b2Vec2(0, -ContentSize.Height * 0.25f / PhysicsHelper.PTM_RATIO),
+                0);
 
             b2FixtureDef fixtureDef = new b2FixtureDef();
             fixtureDef.shape = shape;
@@ -59,7 +65,7 @@ namespace Platformer
             footShape.SetAsBox(
                 ContentSize.Width * 0.3f / PhysicsHelper.PTM_RATIO,
                 0.1f / PhysicsHelper.PTM_RATIO,
-                new b2Vec2(0, -ContentSize.Height * 0.45f / PhysicsHelper.PTM_RATIO),
+                new b2Vec2(0, -ContentSize.Height * 0.5f / PhysicsHelper.PTM_RATIO),
                 0);
 
             b2FixtureDef footFixtureDef = new b2FixtureDef();
